@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "/protobuf";
+
+//TockCat
+message TockCatBest{
+  bytes leader = 1;
+  bytes value = 2; 
+  bytes sig1 = 3; // signature
+  bytes sig2 = 4; // signature
+  bytes sigshare = 5; // sigshare
+}

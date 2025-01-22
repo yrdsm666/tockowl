@@ -1,0 +1,31 @@
+# Relative path to the local key folder
+local_key_dir_path: "./crypto/keys"
+
+# Relative path of the server key folder
+# Don't add a slash at the beginning of the path, Linux will recognize it as an absolute path
+server_key_dir_relative_path: "tockowl/crypto/keys"
+
+# Relative path to the local configuration file
+local_config_path: "./config/config.yaml"
+
+# Relative path of the server configuration file
+# Don't add a slash at the beginning of the path, Linux will recognize it as an absolute path
+server_config_relative_path: "tockowl/config/config.yaml"
+
+# Relative path to the local executable file
+local_executable_file_path: ./server
+
+# Relative path of the server executable file
+# Don't add a slash at the beginning of the path, Linux will recognize it as an absolute path
+server_executable_file_path: "tockowl/"
+
+# Sever list
+server_list:
+  - host: 192.168.198.152
+    port: 22
+    username: "lmh"
+    password: "123456"
+  # - host: 192.168.198.139
+  #   port: 22
+  #   username: "lmh2"
+  #   password: "123456"

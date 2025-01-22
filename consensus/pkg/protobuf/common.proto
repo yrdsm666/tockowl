@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+option go_package = "/protobuf";
+
+message Message {
+  string type = 1;// instance id
+  bytes id = 2;
+  uint32 sender = 3;
+  bytes data = 4;
+}
+
+message Proposal{
+  bytes tx = 1;
+  repeated uint32 view = 2;
+}
+
+message BLock{
+  bytes hash = 1;
+  bytes sig = 2;
+}
+
+message BLockSetValue{
+  repeated uint32 pid = 1;
+  repeated uint32 slot = 2;
+  repeated bytes hash = 3;
+}
+
+message BLockSetValidation{
+  repeated bytes sig = 1;
+}
+
+message Call{
+  repeated uint32 indices = 1;
+}
+
+message Help{
+  message ShardAndProof{
+    bytes vc = 1;
+    bytes shard =2;
+    repeated bytes proof1 = 3;
+    repeated int64 proof2 = 4;
+  }
+  repeated uint32 indices = 1;
+  repeated ShardAndProof shardAndProof = 2;
+}
+
+//TSE
+message Dec{
+  uint32 id = 1;
+  bytes decShare = 2;
+}

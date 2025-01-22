@@ -1,0 +1,73 @@
+syntax = "proto3";
+package pb;
+
+option go_package="./pb";
+
+message Empty {}
+
+message Request {
+  bytes tx = 1;
+}
+
+message Reply {
+  bytes tx = 1;
+  bytes receipt = 2;
+}
+
+message Header{
+    uint64 Height = 1;
+    bytes  ParentHash = 2;
+    repeated bytes UncleHash = 3;
+    bytes Mixdigest = 4;
+    bytes Difficulty = 5;
+    int64 Nonce = 6;
+    bytes Timestamp = 7;
+    repeated bytes PoTProof = 8;
+    int64 Address = 9;
+    bytes Hashes =10;
+}
+
+message HeaderRequest {
+   uint64 Height = 1;
+   bytes Hashes = 2;
+   int64 Address = 3;
+}
+
+message Msg {
+  oneof Payload {
+    Request request = 1;
+    Reply reply = 2;
+  }
+//   string senderAddress = 11;
+}
+
+enum PacketType {
+  P2PPACKET=0;
+  CLIENTPACKET=1;
+}
+
+message Packet {
+  bytes msg =1;
+  int64 consensusID=2;
+  int64 epoch=3;
+  PacketType type = 4;
+  string partition = 5;
+}
+
+enum TransactionType{
+  NORMAL=0;
+  UPGRADE=1;
+  TIMEVOTE=2;
+  LOCK=3;
+}
+
+message Transaction {
+  TransactionType type=1;
+  bytes payload=2;
+}
+
+service P2P {
+  rpc Send(Packet) returns (Empty) {}
+  rpc Request(HeaderRequest) returns (Header) {}
+}
+

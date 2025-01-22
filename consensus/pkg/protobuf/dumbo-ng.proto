@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option go_package = "/protobuf";
+
+//Dumbo-NG
+message NGProposal{
+  bytes tx = 1;
+  bytes hash = 2; // hash of previous tx
+  bytes sig = 3; // signature on previous tx
+}
+message Received{
+  bytes sigshare = 1;
+}
+
+//callHelp
+message NGCallHelp{
+  uint32 pid = 1;
+  uint32 slot = 2;
+  bytes sig = 3;
+}
+message NGHelp{
+  uint32 pid = 1;
+  uint32 slot = 2;
+  bytes shard = 3;
+  bytes root = 4;
+  repeated bytes proof1 = 5;
+  repeated int64 proof2 = 6;
+}

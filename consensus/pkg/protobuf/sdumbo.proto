@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "/protobuf";
+
+
+message PreVote{
+  bool vote = 1;
+  bytes value = 2;
+  bytes sig = 3;
+}
+message Vote{
+  bool vote = 1;
+  bytes value = 2;
+  bytes sig = 3;
+  bytes sigshare = 4;
+}
+
+

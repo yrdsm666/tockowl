@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "/protobuf";
+
+//ParBFT
+message PREP{
+  bytes tag = 1;
+  bytes data = 2; 
+  bytes sig = 3; // signature
+  bytes sigshare = 4; // sigshare
+}
+message FA{
+  bytes tag = 1;
+  bytes data = 2; 
+  bytes sig = 3; // signature
+}

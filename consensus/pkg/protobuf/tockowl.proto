@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+option go_package = "/protobuf";
+
+// provable broadcast
+message Value{
+  bytes value = 1;// paload
+  bytes validation = 2;// for external validating
+  bytes parentValueHash = 3;
+  bytes parentValueSig = 4;
+  uint32 parentValueOwner = 5;
+}
+
+message Echo{
+  bytes sigshare = 1 ;
+}
+
+message Lock{
+  uint32 replica = 1;
+  bytes value = 2;
+  bytes sig = 3;
+}
+
+message Finish{
+  bytes value = 1;
+  bytes sig = 2;
+}
+
+message Done{
+  bytes coinShare = 1;
+}
+
+message Halt{//Halt:=<Finish> of the round-leader
+  uint32 replica = 1;
+  bytes value = 2;
+  bytes sig = 3;
+}
+
+message Best{
+  bytes maxValue = 1;
+  uint32 maxValueOwner = 2;
+  bytes maxQ1Sig = 3;
+  bytes maxQ1Value = 4;
+  uint32 maxQ1Owner = 5;
+  bytes maxQ2Sig = 6;
+  bytes maxQ2Value = 7;
+  uint32 maxQ2Owner = 8;
+  bytes maxQ3Sig = 9;
+  bytes maxQ3Value = 10;
+  uint32 maxQ3Owner = 11;
+}
+
+
+// RBC
+message RBCEcho{
+  bytes hash = 1;
+  bytes m = 2;
+}
+
+message RBCReady{
+  bytes hash = 1;
+  bytes m = 2;
+}
+
+//BA
+message BVAL{
+  bytes hash = 1;
+  uint32 round = 2;
+  uint32 owner = 3;
+  bytes content = 4;
+}
+
+message AUX{
+  bytes hash = 1;
+  uint32 round = 2;
+  uint32 owner = 3;
+  bytes content = 4;
+}
+
+message COIN{
+  bytes hash = 1;
+  uint32 round = 2;
+  uint32 owner = 3;
+  bytes content = 4;
+}
+
+message STOP{
+  bytes content = 1;
+}

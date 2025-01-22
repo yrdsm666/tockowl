@@ -1,0 +1,93 @@
+address_start_port: "8081"
+rpc_address_start_port: "9081"
+address_ip: "127.0.0.1"
+
+log: 
+  level: info
+  to_file: false
+  filename: tockowl_consensus.log
+
+executor:
+  type: local
+  address: 127.0.0.1:9876
+
+topic: this-is-consensus-topic-saddfasfdas-002
+
+crypto: tbls
+
+network_type: -1
+
+# key_gen: true
+key_gen: false
+
+# ========= Fault Configuration =========
+fault:
+  type: crash
+  # type: byz
+  open: true
+  fault_nodes: [0,5,8,19,13,15]
+
+# ======== Network Configuration =========
+p2p:
+  type: grpc
+  extra_delay: 0
+
+# ======= Total Number of Replicas =======
+total: 10
+
+# ========== Remote Experiment ==========
+remote_experiment: 
+  open: true
+  time: 10
+
+# ======= Consensus Configuration =======
+consensus:
+  batch_size: 1000
+  payload_size: 250
+  epoch: 20
+
+  # type: bkr
+  # bkr:
+  #   # type: bkr
+  #   type: ba
+
+  # type: fin
+  # fin:
+  
+  # type: tockcat
+  # tockcat:
+  #   shortcut: true
+
+  # type: parbft
+  # parbft:
+  #   type: parbft1
+  #   timeout: 1000
+  #   shortcut: false
+  #   # rotation: fixed
+  #   rotation: roundrobin
+
+  # type: sdumbo
+  # sdumbo:
+  #   # type: acs
+  #   type: mvba
+  #   shortcut: true
+
+  # type: tockowl
+  # tockowl:
+  #   type: acs
+  #   # type: mvba
+
+  # type: tockowl+
+  # tockowl+:
+  #   timeout: 1000
+  #   # rotation: fixed
+  #   rotation: roundrobin
+
+  type: dumbo_ng
+  dumbo_ng:
+    consensus_type: tockowl
+    timeout: 1000
+    # shortcut: true
+    rotation: fixed
+    # rotation: roundrobin
+  
