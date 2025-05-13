@@ -1,8 +1,11 @@
 # TockOwl
 
-This repository contains the artifacts of the paper _TockOwl: Asynchronous Consensus with Fault and Network Adaptability_. It is based on a fork of the open-source implementation of the [Dory](https://github.com/xygdys/Dory-BFT-Consensus) protocol.
+This repository contains the code of the paper _TockOwl: Asynchronous Consensus with Fault and Network Adaptability_ (USENIX Security 2025).
 
-This repository contains implementations of seven consensus protocols: TockOwl, TockOwl+, TockCat, [BKR](https://eprint.iacr.org/2016/199.pdf), [Speeding-Dumbo](https://eprint.iacr.org/2022/027.pdf), [ParBFT](https://eprint.iacr.org/2023/679.pdf), and [Dumbo-NG](https://arxiv.org/pdf/2209.00750).
+- Paper address: [https://www.usenix.org/conference/usenixsecurity25/presentation/li-minghang](https://www.usenix.org/conference/usenixsecurity25/presentation/li-minghang).
+
+
+Specifically, this repository contains implementations of seven consensus protocols: TockOwl, TockOwl+, TockCat, [BKR](https://eprint.iacr.org/2016/199.pdf), [Speeding-Dumbo](https://eprint.iacr.org/2022/027.pdf), [ParBFT](https://eprint.iacr.org/2023/679.pdf), and [Dumbo-NG](https://arxiv.org/pdf/2209.00750). It is based on a fork of the open-source implementation of the [Dory](https://github.com/xygdys/Dory-BFT-Consensus) protocol.
 
 
 ## Structure
@@ -451,19 +454,6 @@ To generate the data for the line corresponding to **sMVBA (33 crash)** in Figur
 ### Experiment 3 (Figure 6)
 
 Figure 6 presents seven lines, each corresponding to a different consensus protocol and fault scenario:
-
-1. BKR (10 replicas, 3 faulty): total number of replicas 10, 3 Byzantine replicas, BKR protocol;
-
-2. TockOwl (10 replicas, 3 faulty): total number of replicas 10, 3 Byzantine replicas, TockOwl protocol;
-
-3. TockCat (10 replicas, 3 faulty): total number of replicas 10, 3 Byzantine replicas, TockCat protocol, output shortcut disabled;
-
-4. sMVBA (10 replicas, 3 faulty): total number of replicas 10, 3 Byzantine replicas, sMVBA protocol, output shortcut disabled;
-
-5. TockOwl (100 replicas, 33 faulty): total number of replicas 100, 33 Byzantine replicas, TockOwl protocol;
-
-6. TockCat (100 replicas, 33 faulty): 100 total replicas, 33 Byzantine replicas, TockCat protocol, output shortcut disabled;
-7. sMVBA (100 replicas, 33 faulty): 100 total replicas, 33 Byzantine replicas, sMVBA protocol, output shortcut disabled;
 
 | Lines                             | Protocols | Total replicas | Faults       | Shortcut |
 | --------------------------------- | --------- | -------------- | ------------ | -------- |
